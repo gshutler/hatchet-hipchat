@@ -2,6 +2,8 @@
 
 A HipChat appender for [Hatchet](http://gshutler.github.com/hatchet/).
 
+[![Build Status](https://secure.travis-ci.org/gshutler/hatchet-hipchat.png?branch=master)](http://travis-ci.org/gshutler/hatchet-hipchat)
+
 ## Installation
 
 Add this line to your application's Gemfile:
