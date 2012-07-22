@@ -38,18 +38,15 @@ module Hatchet
       yield self if block_given?
     end
 
-    # Internal: Sends a message to HipChat if the appender is configured to send
-    # messages at the given level for the given context.
+    # Internal: Sends a message to HipChat.
     #
     # level   - The level of the message.
     # context - The context of the message.
-    # message - The message to add to the appender if it is configured to log
-    #           messages at the given level for the given context.
+    # message - The unformatted message.
     #
     # Returns nothing.
     #
     def add(level, context, message)
-      return unless enabled? level, context
       message = @formatter.format(level, context, message)
       client.rooms_message @room_id, 'Hatchet', message
     end
