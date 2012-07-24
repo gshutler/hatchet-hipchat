@@ -48,7 +48,7 @@ module Hatchet
     #
     def add(level, context, message)
       message = @formatter.format(level, context, message)
-      client.rooms_message @room_id, 'Hatchet', message
+      client.rooms_message @room_id, 'Hatchet', message, 'text'
     end
 
     # Internal: Returns the client used to send messages to HipChat.
