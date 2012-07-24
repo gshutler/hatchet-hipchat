@@ -25,9 +25,32 @@ Hatchet.configure do |config|
   config.appenders << Hatchet::HipChatAppender.new do |appender|
     appender.api_token = 'YOUR_HIPCHAT_API_TOKEN'
     appender.room_id   = 'YOUR_ROOM_ID'
+    appender.name      = 'MESSAGING_NAME' # Optional - defaults to 'Hatchet'
   end
 end
 ```
+
+## Emoticon formatter
+
+And if you're rage inclined (like me), there's a `HipChatEmoticonFormatter` you
+can use to replace levels with rage faces:
+
+```ruby
+Hatchet.configure do |config|
+  config.appenders << Hatchet::HipChatAppender.new do |appender|
+    appender.formatter = Hatchet::HipChatEmoticonFormatter.new
+    # Other configuration
+  end
+end
+```
+
+### Mapping
+
+ * `:debug` is ![Content](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/content.png)
+ * `:info` is ![Wat](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/wat.png)
+ * `:warn` is ![Oh crap](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/ohcrap.png)
+ * `:error` is ![Oh my god](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/omg.png)
+ * `:fatal` is ![Boom](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/boom.gif)
 
 ## Contributing
 
