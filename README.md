@@ -33,7 +33,8 @@ end
 ## Emoticon formatter
 
 And if you're rage inclined (like me), there's a `HipChatEmoticonFormatter` you
-can use to replace levels with rage faces:
+can use to
+replace levels with rage faces:
 
 ```ruby
 Hatchet.configure do |config|
@@ -46,11 +47,11 @@ end
 
 ### Mapping
 
- * `:debug` is ![Content](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/content.png)
- * `:info` is ![Wat](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/wat.png)
- * `:warn` is ![Oh crap](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/ohcrap.png)
- * `:error` is ![Oh my god](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/omg.png)
- * `:fatal` is ![Boom](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/boom.gif)
+ * ![Content](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/content.png) `:debug`
+ * ![Wat](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/wat.png) `:info`
+ * ![Oh crap](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/ohcrap.png) `:warn`
+ * ![Oh my god](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/omg.png) `:error`
+ * ![Boom](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/boom.gif) `:fatal`
 
 ## Contributing
 
