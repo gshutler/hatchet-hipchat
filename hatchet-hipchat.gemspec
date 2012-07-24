@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["garry@robustsoftware.co.uk"]
   gem.description   = %q{Hatchet appender that sends messages to HipChat}
   gem.summary       = %q{Hatchet appender that sends messages to HipChat}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/gshutler/hatchet-hipchat"
 
   gem.files         = Dir['{lib,spec}/**/*'] + %w{LICENSE}
   gem.test_files    = Dir['spec/**/*']
