@@ -2,12 +2,18 @@ module Hatchet
 
   # Public: Class for sending log messages to a HipChat room.
   #
+  # API reference: https://www.hipchat.com/docs/api/method/rooms/message
+  #
   class HipChatAppender
     include LevelManager
 
     # Internal: The class to use to create HipChat clients.
     #
     CLIENT = HipChat::API
+
+    # Internal: Map for log level to message color.
+    #
+    COLOR_MAP = { debug: 'gray', info: 'gray', warn: 'yellow', error: 'red', fatal: 'red' }
 
     # Public: The formatter used to format messages before sending them to the
     # HipChat room.
@@ -49,7 +55,7 @@ module Hatchet
     #
     def add(level, context, message)
       message = @formatter.format(level, context, message)
-      client.rooms_message @room_id, @name, message, 0, 'yellow', 'text'
+      client.rooms_message @room_id, @name, message, 0, COLOR_MAP[level], 'text'
     end
 
     # Internal: Returns the client used to send messages to HipChat.
