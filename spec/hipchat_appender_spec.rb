@@ -25,7 +25,7 @@ describe HipChatAppender do
     end
 
     before do
-      subject.add :warn, 'Custom::Context', 'Hello, World'
+      subject.add :warn, 'Custom::Context', Message.new('Hello, World')
     end
 
     let(:message) { subject.client.messages.last }
@@ -36,7 +36,7 @@ describe HipChatAppender do
 
     it 'sends a formatted message to the configured room' do
       assert 'ROOM_ID' == message.room_id
-      formatted_message = subject.formatter.format(:warn, 'Custom::Context', 'Hello, World')
+      formatted_message = subject.formatter.format(:warn, 'Custom::Context', Message.new('Hello, World'))
       assert 'Hatchet' == message.from
       assert formatted_message == message.message
       assert 0 == message.notify
@@ -49,7 +49,7 @@ describe HipChatAppender do
       end
 
       before do
-        subject.add :warn, 'Custom::Context', 'Hello, World'
+        subject.add :warn, 'Custom::Context', Message.new('Hello, World')
       end
 
       it 'sends a message with the configured name' do
@@ -59,27 +59,27 @@ describe HipChatAppender do
 
     describe 'message colors' do
       it 'sends a debug message with a gray background' do
-        subject.add :debug, 'Custom::Context', 'Hello, World'
+        subject.add :debug, 'Custom::Context', Message.new('Hello, World')
         assert 'gray' == message.color
       end
 
       it 'sends an info message with a gray background' do
-        subject.add :info, 'Custom::Context', 'Hello, World'
+        subject.add :info, 'Custom::Context', Message.new('Hello, World')
         assert 'gray' == message.color
       end
 
       it 'sends a warn message with a yellow background' do
-        subject.add :warn, 'Custom::Context', 'Hello, World'
+        subject.add :warn, 'Custom::Context', Message.new('Hello, World')
         assert 'yellow' == message.color
       end
 
       it 'sends an error message with a red background' do
-        subject.add :error, 'Custom::Context', 'Hello, World'
+        subject.add :error, 'Custom::Context', Message.new('Hello, World')
         assert 'red' == message.color
       end
 
       it 'sends a fatal message with a red background' do
-        subject.add :fatal, 'Custom::Context', 'Hello, World'
+        subject.add :fatal, 'Custom::Context', Message.new('Hello, World')
         assert 'red' == message.color
       end
     end
