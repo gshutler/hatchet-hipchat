@@ -13,6 +13,6 @@ Gem::Specification.new do |gem|
   gem.name          = "hatchet-hipchat"
   gem.require_paths = ["lib"]
   gem.version       = Hatchet::Hipchat::VERSION
-  gem.add_dependency 'hatchet', '~> 0.0.9'
+  gem.add_dependency 'hatchet', '~> 0.0'
   gem.add_dependency 'hipchat-api', '~> 1.0.4'
 end
