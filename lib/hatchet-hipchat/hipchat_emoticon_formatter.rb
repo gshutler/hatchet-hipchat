@@ -42,11 +42,15 @@ module Hatchet
     #
     # Returns messages in the format:
     #
-    #   LEVEL - CONTEXT - MESSAGE
+    #   LEVEL - CONTEXT NDC - MESSAGE
     #
     def format(level, context, message)
-      message = message.to_s.strip
-      "#{LEVEL_EMOTICON_MAP[level]} - #{context} - #{message}"
+      msg = message.to_s.strip
+      if message.ndc.any?
+        "#{LEVEL_EMOTICON_MAP[level]} - #{context} #{message.ndc.join(' ')} - #{msg}"
+      else
+        "#{LEVEL_EMOTICON_MAP[level]} - #{context} - #{msg}"
+      end
     end
 
   end
