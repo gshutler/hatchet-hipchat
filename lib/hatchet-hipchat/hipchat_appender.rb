@@ -13,7 +13,13 @@ module Hatchet
 
     # Internal: Map for log level to message color.
     #
-    COLOR_MAP = { debug: 'gray', info: 'gray', warn: 'yellow', error: 'red', fatal: 'red' }
+    COLOR_MAP = {
+      :debug => 'gray',
+      :info  => 'gray',
+      :warn  => 'yellow',
+      :error => 'red',
+      :fatal => 'red'
+    }
 
     # Public: The formatter used to format messages before sending them to the
     # HipChat room.

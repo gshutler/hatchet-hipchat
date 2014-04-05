@@ -46,14 +46,12 @@ describe HipChatAppender do
     describe 'setting name' do
       before do
         subject.name = 'CustomName'
-      end
-
-      before do
         subject.add :warn, 'Custom::Context', Message.new('Hello, World')
       end
 
       it 'sends a message with the configured name' do
-        assert 'CustomName' == message.from
+        assert 'CustomName' == message.from,
+               "expected '#{message.from}' to equal 'CustomName'"
       end
     end
 
