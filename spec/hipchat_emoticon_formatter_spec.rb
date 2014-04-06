@@ -17,11 +17,20 @@ describe HipChatEmoticonFormatter do
     assert '(ohcrap) - Context one two - Hello, World' == formatter.format(:warn, context, message)
   end
 
-  it 'maps debug to (omg)' do
+  it 'maps error to (omg)' do
     assert '(omg) - Context one two - Hello, World' == formatter.format(:error, context, message)
   end
 
-  it 'maps debug to (boom)' do
+  it 'maps fatal to (boom)' do
     assert '(boom) - Context one two - Hello, World' == formatter.format(:fatal, context, message)
+  end
+
+  describe 'backtrace limiting' do
+    let(:error) { OpenStruct.new(message: 'Boom!', backtrace: (1..10).map { |i| "foo.rb:#{i}:a" }) }
+    let(:message) { Message.new(ndc: [], message: '  Hello, World  ', error: error) }
+
+    it "includes #{HipChatEmoticonFormatter::DEFAULT_BACKTRACE_LIMIT} lines of backtrace" do
+      assert (1 + HipChatEmoticonFormatter::DEFAULT_BACKTRACE_LIMIT) == formatter.format(:error, context, message).lines.count
+    end
   end
 end

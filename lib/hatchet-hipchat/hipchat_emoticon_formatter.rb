@@ -33,7 +33,7 @@ module Hatchet
     # Public: Creates a new instance.
     #
     def initialize(args = {})
-      backtrace_limit = args.fetch(:backtrace_limit, DEFAULT_BACKTRACE_LIMIT)
+      self.backtrace_limit = args.fetch(:backtrace_limit, DEFAULT_BACKTRACE_LIMIT)
     end
 
     # Public: Returns the formatted message with HipChat emoticons in place of
